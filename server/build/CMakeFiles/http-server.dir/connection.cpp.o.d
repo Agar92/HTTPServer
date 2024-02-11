@@ -1,7 +1,7 @@
 CMakeFiles/http-server.dir/connection.cpp.o: \
- /home/andrey/Desktop/HTTPServer/http/server/connection.cpp \
+ /home/andrey/Desktop/HTTPServer/server/connection.cpp \
  /usr/include/stdc-predef.h \
- /home/andrey/Desktop/HTTPServer/http/server/connection.hpp \
+ /home/andrey/Desktop/HTTPServer/server/connection.hpp \
  /usr/include/c++/11/array /usr/include/c++/11/utility \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -1111,12 +1111,12 @@ CMakeFiles/http-server.dir/connection.cpp.o: \
  /usr/include/boost/asio/windows/stream_handle.hpp \
  /usr/include/boost/asio/write_at.hpp \
  /usr/include/boost/asio/impl/write_at.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/reply.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/header.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/request.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/request_handler.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/request_parser.hpp \
+ /home/andrey/Desktop/HTTPServer/server/reply.hpp \
+ /home/andrey/Desktop/HTTPServer/server/header.hpp \
+ /home/andrey/Desktop/HTTPServer/server/request.hpp \
+ /home/andrey/Desktop/HTTPServer/server/request_handler.hpp \
+ /home/andrey/Desktop/HTTPServer/server/request_parser.hpp \
  /usr/include/c++/11/iostream \
- /home/andrey/Desktop/HTTPServer/http/server/connection_manager.hpp \
+ /home/andrey/Desktop/HTTPServer/server/connection_manager.hpp \
  /usr/include/c++/11/set /usr/include/c++/11/bits/stl_set.h \
  /usr/include/c++/11/bits/stl_multiset.h

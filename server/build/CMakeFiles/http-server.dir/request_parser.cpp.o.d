@@ -1,7 +1,7 @@
 CMakeFiles/http-server.dir/request_parser.cpp.o: \
- /home/andrey/Desktop/HTTPServer/http/server/request_parser.cpp \
+ /home/andrey/Desktop/HTTPServer/server/request_parser.cpp \
  /usr/include/stdc-predef.h \
- /home/andrey/Desktop/HTTPServer/http/server/request_parser.hpp \
+ /home/andrey/Desktop/HTTPServer/server/request_parser.hpp \
  /usr/include/c++/11/tuple /usr/include/c++/11/utility \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -33,7 +33,7 @@ CMakeFiles/http-server.dir/request_parser.cpp.o: \
  /usr/include/c++/11/bits/range_access.h \
  /usr/include/c++/11/bits/uses_allocator.h \
  /usr/include/c++/11/bits/invoke.h \
- /home/andrey/Desktop/HTTPServer/http/server/request.hpp \
+ /home/andrey/Desktop/HTTPServer/server/request.hpp \
  /usr/include/c++/11/string /usr/include/c++/11/bits/stringfwd.h \
  /usr/include/c++/11/bits/memoryfwd.h \
  /usr/include/c++/11/bits/char_traits.h \
@@ -137,4 +137,4 @@ CMakeFiles/http-server.dir/request_parser.cpp.o: \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
  /usr/include/c++/11/bits/vector.tcc \
- /home/andrey/Desktop/HTTPServer/http/server/header.hpp
+ /home/andrey/Desktop/HTTPServer/server/header.hpp

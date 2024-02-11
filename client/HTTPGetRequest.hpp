@@ -12,7 +12,7 @@ class HTTPGetRequest
 {
 public:
  HTTPGetRequest(
-  /*boost::asio::io_service& io_service, */
+  /*boost::asio::io_context& io_context,*/
   std::string host, 
   std::string relativeURL, 
   HTTPRequestDataReceived receivedCB,
@@ -24,7 +24,7 @@ public:
  void sendRequest();
 
 private:
- boost::asio::io_context m_io_service;
+ boost::asio::io_context /*&*/ m_io_service;
  HTTPRequestDataReceived m_receivedCB;
  HTTPRequestComplete m_completeCB;
 

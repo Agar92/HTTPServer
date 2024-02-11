@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServer/http/client
+CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServer/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServer/http/client/build
+CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServer/client/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/http-client.dir/clean
 CMakeFiles/http-client.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http-client.dir/build.make CMakeFiles/http-client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http-client.dir/build.make CMakeFiles/http-client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles --progress-num=1,2,3 "Built target http-client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles --progress-num=1,2,3 "Built target http-client"
 .PHONY : CMakeFiles/http-client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/http-client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/client/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/http-client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/client/build/CMakeFiles 0
 .PHONY : CMakeFiles/http-client.dir/rule
 
 # Convenience name for target.

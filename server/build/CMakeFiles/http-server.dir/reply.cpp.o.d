@@ -1,7 +1,7 @@
 CMakeFiles/http-server.dir/reply.cpp.o: \
- /home/andrey/Desktop/HTTPServer/http/server/reply.cpp \
+ /home/andrey/Desktop/HTTPServer/server/reply.cpp \
  /usr/include/stdc-predef.h \
- /home/andrey/Desktop/HTTPServer/http/server/reply.hpp \
+ /home/andrey/Desktop/HTTPServer/server/reply.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -1115,4 +1115,4 @@ CMakeFiles/http-server.dir/reply.cpp.o: \
  /usr/include/boost/asio/windows/stream_handle.hpp \
  /usr/include/boost/asio/write_at.hpp \
  /usr/include/boost/asio/impl/write_at.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/header.hpp
+ /home/andrey/Desktop/HTTPServer/server/header.hpp

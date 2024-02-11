@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/andrey/Desktop/HTTPServer/http/client/HTTPGetRequest.cpp" "CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o" "gcc" "CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o.d"
-  "/home/andrey/Desktop/HTTPServer/http/client/main.cpp" "CMakeFiles/http-client.dir/main.cpp.o" "gcc" "CMakeFiles/http-client.dir/main.cpp.o.d"
+  "/home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.cpp" "CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o" "gcc" "CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o.d"
+  "/home/andrey/Desktop/HTTPServer/client/main.cpp" "CMakeFiles/http-client.dir/main.cpp.o" "gcc" "CMakeFiles/http-client.dir/main.cpp.o.d"
   )
 
 # Targets to which this target links.

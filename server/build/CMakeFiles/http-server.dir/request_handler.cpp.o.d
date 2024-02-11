@@ -1,7 +1,7 @@
 CMakeFiles/http-server.dir/request_handler.cpp.o: \
- /home/andrey/Desktop/HTTPServer/http/server/request_handler.cpp \
+ /home/andrey/Desktop/HTTPServer/server/request_handler.cpp \
  /usr/include/stdc-predef.h \
- /home/andrey/Desktop/HTTPServer/http/server/request_handler.hpp \
+ /home/andrey/Desktop/HTTPServer/server/request_handler.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -155,8 +155,8 @@ CMakeFiles/http-server.dir/request_handler.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
  /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/sstream \
  /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/iostream \
- /home/andrey/Desktop/HTTPServer/http/server/mime_types.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/reply.hpp \
+ /home/andrey/Desktop/HTTPServer/server/mime_types.hpp \
+ /home/andrey/Desktop/HTTPServer/server/reply.hpp \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
@@ -1120,5 +1120,5 @@ CMakeFiles/http-server.dir/request_handler.cpp.o: \
  /usr/include/boost/asio/windows/stream_handle.hpp \
  /usr/include/boost/asio/write_at.hpp \
  /usr/include/boost/asio/impl/write_at.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/header.hpp \
- /home/andrey/Desktop/HTTPServer/http/server/request.hpp
+ /home/andrey/Desktop/HTTPServer/server/header.hpp \
+ /home/andrey/Desktop/HTTPServer/server/request.hpp

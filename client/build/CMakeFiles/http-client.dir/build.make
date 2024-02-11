@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServer/http/client
+CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServer/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServer/http/client/build
+CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServer/client/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/http-client.dir/depend.make
@@ -72,30 +72,30 @@ include CMakeFiles/http-client.dir/flags.make
 CMakeFiles/http-client.dir/main.cpp.o: CMakeFiles/http-client.dir/flags.make
 CMakeFiles/http-client.dir/main.cpp.o: ../main.cpp
 CMakeFiles/http-client.dir/main.cpp.o: CMakeFiles/http-client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/http-client.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/http-client.dir/main.cpp.o -MF CMakeFiles/http-client.dir/main.cpp.o.d -o CMakeFiles/http-client.dir/main.cpp.o -c /home/andrey/Desktop/HTTPServer/http/client/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/http-client.dir/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/http-client.dir/main.cpp.o -MF CMakeFiles/http-client.dir/main.cpp.o.d -o CMakeFiles/http-client.dir/main.cpp.o -c /home/andrey/Desktop/HTTPServer/client/main.cpp
 
 CMakeFiles/http-client.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/http-client.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrey/Desktop/HTTPServer/http/client/main.cpp > CMakeFiles/http-client.dir/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrey/Desktop/HTTPServer/client/main.cpp > CMakeFiles/http-client.dir/main.cpp.i
 
 CMakeFiles/http-client.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/http-client.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrey/Desktop/HTTPServer/http/client/main.cpp -o CMakeFiles/http-client.dir/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrey/Desktop/HTTPServer/client/main.cpp -o CMakeFiles/http-client.dir/main.cpp.s
 
 CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o: CMakeFiles/http-client.dir/flags.make
 CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o: ../HTTPGetRequest.cpp
 CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o: CMakeFiles/http-client.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o -MF CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o.d -o CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o -c /home/andrey/Desktop/HTTPServer/http/client/HTTPGetRequest.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o -MF CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o.d -o CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o -c /home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.cpp
 
 CMakeFiles/http-client.dir/HTTPGetRequest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/http-client.dir/HTTPGetRequest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrey/Desktop/HTTPServer/http/client/HTTPGetRequest.cpp > CMakeFiles/http-client.dir/HTTPGetRequest.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.cpp > CMakeFiles/http-client.dir/HTTPGetRequest.cpp.i
 
 CMakeFiles/http-client.dir/HTTPGetRequest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/http-client.dir/HTTPGetRequest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrey/Desktop/HTTPServer/http/client/HTTPGetRequest.cpp -o CMakeFiles/http-client.dir/HTTPGetRequest.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.cpp -o CMakeFiles/http-client.dir/HTTPGetRequest.cpp.s
 
 # Object files for target http-client
 http__client_OBJECTS = \
@@ -109,7 +109,7 @@ http-client: CMakeFiles/http-client.dir/main.cpp.o
 http-client: CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o
 http-client: CMakeFiles/http-client.dir/build.make
 http-client: CMakeFiles/http-client.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable http-client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable http-client"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/http-client.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -121,6 +121,6 @@ CMakeFiles/http-client.dir/clean:
 .PHONY : CMakeFiles/http-client.dir/clean
 
 CMakeFiles/http-client.dir/depend:
-	cd /home/andrey/Desktop/HTTPServer/http/client/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andrey/Desktop/HTTPServer/http/client /home/andrey/Desktop/HTTPServer/http/client /home/andrey/Desktop/HTTPServer/http/client/build /home/andrey/Desktop/HTTPServer/http/client/build /home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles/http-client.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/andrey/Desktop/HTTPServer/client/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/andrey/Desktop/HTTPServer/client /home/andrey/Desktop/HTTPServer/client /home/andrey/Desktop/HTTPServer/client/build /home/andrey/Desktop/HTTPServer/client/build /home/andrey/Desktop/HTTPServer/client/build/CMakeFiles/http-client.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/http-client.dir/depend
 

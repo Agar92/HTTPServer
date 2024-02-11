@@ -4,10 +4,10 @@
 #include <fstream>
 #include <string>
 
-HTTPGetRequest::HTTPGetRequest(/*boost::asio::io_service& io_service, */std::string host, std::string clipURL, HTTPRequestDataReceived receivedCB, HTTPRequestComplete completeCB) :
+HTTPGetRequest::HTTPGetRequest(/*boost::asio::io_context& io_context, */std::string host, std::string clipURL, HTTPRequestDataReceived receivedCB, HTTPRequestComplete completeCB) :
+ /*m_io_service(io_context),*/
  m_host(host),
  m_relativeURL(clipURL),
- /*m_io_service(io_service),*/
  m_socket(m_io_service),
  m_resolver(m_io_service),
  m_receivedCB(receivedCB),
@@ -97,7 +97,7 @@ void HTTPGetRequest::ReadData()
             file_size += size - shift;
             m_receivedCB(buf.get(), size);
         }
-        std::ofstream out("received.jpg", std::ios::out | std::ios::binary);
+        std::ofstream out("received.txt", std::ios::out | std::ios::binary);
         out.write( file_contents.data(), file_size);
         out.close();
         std::cout<<"END WRITE received.dat"<<std::endl;

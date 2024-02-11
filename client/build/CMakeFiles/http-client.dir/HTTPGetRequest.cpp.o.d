@@ -1,7 +1,7 @@
 CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o: \
- /home/andrey/Desktop/HTTPServer/http/client/HTTPGetRequest.cpp \
+ /home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.cpp \
  /usr/include/stdc-predef.h \
- /home/andrey/Desktop/HTTPServer/http/client/HTTPGetRequest.hpp \
+ /home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
