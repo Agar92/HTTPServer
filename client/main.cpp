@@ -62,10 +62,10 @@ int main(int argc, char* argv[])
         boost::to_upper(copy_cmd);
         if(copy_cmd=="EXIT" || copy_cmd=="QUIT" || copy_cmd=="X" || copy_cmd=="Q") break;
         std::cout<<"cmd="<<cmd<<std::endl;
-        io_context.post([&io_context,&cmd]()
+        io_context.post([&]()
             {
                 HTTPGetRequest req(
-                    /*io_context,*/
+                    io_context,
                     "127.0.0.1",
                     cmd.c_str(),
                     OnDataReceived,

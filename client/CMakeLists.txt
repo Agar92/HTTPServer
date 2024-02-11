@@ -16,3 +16,5 @@ target_include_directories(http-client PRIVATE
 target_link_libraries(http-client PRIVATE
     ${Boost_LIBRARIES}
 )
+
+add_compile_options(-g)

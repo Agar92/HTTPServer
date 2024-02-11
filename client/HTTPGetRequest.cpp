@@ -4,8 +4,8 @@
 #include <fstream>
 #include <string>
 
-HTTPGetRequest::HTTPGetRequest(/*boost::asio::io_context& io_context, */std::string host, std::string clipURL, HTTPRequestDataReceived receivedCB, HTTPRequestComplete completeCB) :
- /*m_io_service(io_context),*/
+HTTPGetRequest::HTTPGetRequest(boost::asio::io_context& io_context, std::string host, std::string clipURL, HTTPRequestDataReceived receivedCB, HTTPRequestComplete completeCB) :
+ m_io_service(io_context),
  m_host(host),
  m_relativeURL(clipURL),
  m_socket(m_io_service),
@@ -25,6 +25,7 @@ HTTPGetRequest::~HTTPGetRequest()
 // url should be in format such as "/index.html"
 void HTTPGetRequest::sendRequest()
 {
+    std::cout<<"HTTPGetRequest::sendRequest(...)"<<std::endl;
  tcp::resolver::query query(m_host, "10000");//"http");
 
  m_resolver.async_resolve(query, 
@@ -58,6 +59,7 @@ void HTTPGetRequest::sendRequest()
 
 void HTTPGetRequest::ReadData()
 {
+    std::cout<<"HTTPGetRequest::ReadData(...)"<<std::endl;
     boost::asio::async_read(m_socket, m_response, boost::asio::transfer_at_least(1),
         [this](boost::system::error_code ec, std::size_t)
     {
