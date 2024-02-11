@@ -19,11 +19,6 @@ HTTPGetRequest::HTTPGetRequest(boost::asio::io_context& io_context, std::string 
  m_completeCB(completeCB)
 {
     std::cout<<"HTTPGetRequest::HTTPGetRequest(...)"<<std::endl;
-    m_io_service.dispatch([&,this](){
-        this->sendRequest();
-    });
-    std::cout<<"AFTER AFTER"<<std::endl;
-    std::this_thread::sleep_for(10ms);
 }
 
 HTTPGetRequest::~HTTPGetRequest()

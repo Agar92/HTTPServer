@@ -71,6 +71,7 @@ int main(int argc, char* argv[])
                     OnDataReceived,
                     OnRequestCompleted);
                 req.sendRequest();
+                std::this_thread::sleep_for(10ms);
         //    });
         g_data.clear();
     }
