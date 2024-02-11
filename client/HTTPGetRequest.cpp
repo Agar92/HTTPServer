@@ -3,6 +3,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <chrono>
+#include <thread>
+
+using namespace std::literals::chrono_literals;
+
 
 HTTPGetRequest::HTTPGetRequest(boost::asio::io_context& io_context, std::string host, std::string clipURL, HTTPRequestDataReceived receivedCB, HTTPRequestComplete completeCB) :
  m_io_service(io_context),
@@ -14,11 +19,16 @@ HTTPGetRequest::HTTPGetRequest(boost::asio::io_context& io_context, std::string 
  m_completeCB(completeCB)
 {
     std::cout<<"HTTPGetRequest::HTTPGetRequest(...)"<<std::endl;
+    m_io_service.dispatch([&,this](){
+        this->sendRequest();
+    });
+    std::cout<<"AFTER AFTER"<<std::endl;
+    std::this_thread::sleep_for(10ms);
 }
 
 HTTPGetRequest::~HTTPGetRequest()
 {
-
+    std::cout<<"HTTPGetRequest::~HTTPGetRequest()"<<std::endl;
 }
 
 // host should be in format such as "www.google.co.nz"
@@ -54,7 +64,6 @@ void HTTPGetRequest::sendRequest()
     }
    });
   });
-  m_io_service.run();
 }
 
 void HTTPGetRequest::ReadData()

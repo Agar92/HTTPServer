@@ -1222,7 +1222,9 @@ CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o: ../HTTPGetRequest.cpp \
   /usr/include/c++/11/bits/codecvt.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc
+  /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/this_thread_sleep.h
 
 CMakeFiles/http-client.dir/main.cpp.o: ../main.cpp \
   /usr/include/stdc-predef.h \
@@ -3071,11 +3073,11 @@ CMakeFiles/http-client.dir/main.cpp.o: ../main.cpp \
 
 /usr/include/boost/ref.hpp:
 
+../main.cpp:
+
 /usr/include/c++/11/bits/this_thread_sleep.h:
 
 /usr/include/c++/11/thread:
-
-../main.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
 

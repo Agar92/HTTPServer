@@ -62,8 +62,8 @@ int main(int argc, char* argv[])
         boost::to_upper(copy_cmd);
         if(copy_cmd=="EXIT" || copy_cmd=="QUIT" || copy_cmd=="X" || copy_cmd=="Q") break;
         std::cout<<"cmd="<<cmd<<std::endl;
-        io_context.post([&]()
-            {
+        //io_context.post([&]()
+        //    {
                 HTTPGetRequest req(
                     io_context,
                     "127.0.0.1",
@@ -71,7 +71,7 @@ int main(int argc, char* argv[])
                     OnDataReceived,
                     OnRequestCompleted);
                 req.sendRequest();
-            });
+        //    });
         g_data.clear();
     }
     std::cout<<"END OF WHILE LOOP"<<std::endl;
