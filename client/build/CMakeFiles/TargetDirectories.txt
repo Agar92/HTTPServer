@@ -1,0 +1,3 @@
+/home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles/http-client.dir
+/home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles/edit_cache.dir
+/home/andrey/Desktop/HTTPServer/http/client/build/CMakeFiles/rebuild_cache.dir
