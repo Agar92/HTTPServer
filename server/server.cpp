@@ -23,7 +23,7 @@ server::server(const std::string& address, const std::string& port,
   signals_.add(SIGQUIT);
 #endif // defined(SIGQUIT)
 
-  ///do_await_stop();
+  do_await_stop();
 
   // Open the acceptor with the option to reuse the address (i.e. SO_REUSEADDR).
   boost::asio::ip::tcp::resolver resolver(io_service_);
@@ -47,6 +47,8 @@ void server::run()
 
 void server::do_accept()
 {
+  std::cout<<"ENTER server::do_accept()"<<std::endl;
+
   acceptor_.async_accept(socket_,
       [this](boost::system::error_code ec)
       {
@@ -59,12 +61,14 @@ void server::do_accept()
 
         if (!ec)
         {
+          std::cout<<"======BEFORE connection_manager_.start(...)"<<std::endl;
           connection_manager_.start(std::make_shared<connection>(
               std::move(socket_), connection_manager_, request_handler_));
+          std::cout<<"======AFTER connection_manager_.start(...)"<<std::endl;
         }
-
         do_accept();
       });
+  std::cout<<"EXIT server::do_accept()"<<std::endl;
 }
 
 void server::do_await_stop()

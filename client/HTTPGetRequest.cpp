@@ -3,11 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <chrono>
-#include <thread>
-
-using namespace std::literals::chrono_literals;
-
 
 HTTPGetRequest::HTTPGetRequest(boost::asio::io_context& io_context, std::string host, std::string clipURL, HTTPRequestDataReceived receivedCB, HTTPRequestComplete completeCB) :
  m_io_service(io_context),
@@ -19,46 +14,55 @@ HTTPGetRequest::HTTPGetRequest(boost::asio::io_context& io_context, std::string 
  m_completeCB(completeCB)
 {
     std::cout<<"HTTPGetRequest::HTTPGetRequest(...)"<<std::endl;
+    std::cout<<"m_relativeURL="<<m_relativeURL<<std::endl;
+    //
+    // Determine the file extension.
+    std::size_t last_slash_pos = m_relativeURL.find_last_of("/");
+    std::size_t last_dot_pos = m_relativeURL.find_last_of(".");
+    if (last_slash_pos != std::string::npos &&
+        last_dot_pos != std::string::npos   &&
+        last_dot_pos > last_slash_pos)
+        requested_file_extension = m_relativeURL.substr(last_dot_pos + 1);
+    else requested_file_extension=".dat";
+    std::cout<<"requested_file_extension="<<requested_file_extension<<std::endl;
 }
 
-HTTPGetRequest::~HTTPGetRequest()
-{
-    std::cout<<"HTTPGetRequest::~HTTPGetRequest()"<<std::endl;
-}
+HTTPGetRequest::~HTTPGetRequest(){}
 
 // host should be in format such as "www.google.co.nz"
 // url should be in format such as "/index.html"
 void HTTPGetRequest::sendRequest()
 {
     std::cout<<"HTTPGetRequest::sendRequest(...)"<<std::endl;
- tcp::resolver::query query(m_host, "10000");//"http");
+    tcp::resolver::query query(m_host, "10000");//"http");
 
- m_resolver.async_resolve(query, 
-  [this](const boost::system::error_code& ec, tcp::resolver::iterator endpoint_iterator)
-  {
-   boost::asio::async_connect(m_socket, endpoint_iterator,
-    [this](boost::system::error_code ec, tcp::resolver::iterator)
-   {
-    if (!ec)
+    m_resolver.async_resolve(query, 
+        [this](const boost::system::error_code& ec, tcp::resolver::iterator endpoint_iterator)
     {
-     std::ostream request_stream(&m_request);
-     request_stream << "GET " << m_relativeURL << " HTTP/1.1\r\n";
-     request_stream << "Host: " << m_host << "\r\n";
-     request_stream << "Accept: */*\r\n";
-     request_stream << "Connection: close\r\n\r\n";
+        boost::asio::async_connect(m_socket, endpoint_iterator,
+            [this](boost::system::error_code ec, tcp::resolver::iterator)
+        {
+            if (!ec)
+            {
+             std::ostream request_stream(&m_request);
+             request_stream << "GET " << m_relativeURL << " HTTP/1.1\r\n";
+             request_stream << "Host: " << m_host << "\r\n";
+             request_stream << "Accept: */*\r\n";
+             request_stream << "Connection: close\r\n\r\n";
 
-     boost::asio::async_write(m_socket, m_request,
-      [this](boost::system::error_code ec, std::size_t /*length*/)
-     {
-      boost::asio::async_read_until(m_socket, m_response, "\r\n\r\n",
-       [this](boost::system::error_code ec, std::size_t length)
-       {
-        ReadData();
-       });
-     });
-    }
-   });
-  });
+             boost::asio::async_write(m_socket, m_request,
+              [this](boost::system::error_code ec, std::size_t /*length*/)
+             {
+              boost::asio::async_read_until(m_socket, m_response, "\r\n\r\n",
+               [this](boost::system::error_code ec, std::size_t length)
+               {
+                ReadData();
+               });
+             });
+            }
+        });
+    });
+    m_io_service.run();
 }
 
 void HTTPGetRequest::ReadData()
@@ -83,7 +87,7 @@ void HTTPGetRequest::ReadData()
                  <<std::endl;
         if (size > 0)
         {
-            std::cout<<"BEGIN WRITE received.dat"<<std::endl;
+            std::cout<<"BEGIN WRITE received."<<requested_file_extension<<std::endl;
             std::unique_ptr<char> buf(new char[size]);
             m_response.sgetn(buf.get(), size);
             size_t shift=0;
@@ -103,10 +107,10 @@ void HTTPGetRequest::ReadData()
             file_size += size - shift;
             m_receivedCB(buf.get(), size);
         }
-        std::ofstream out("received.txt", std::ios::out | std::ios::binary);
+        std::ofstream out("received." + requested_file_extension, std::ios::out | std::ios::binary);
         out.write( file_contents.data(), file_size);
         out.close();
-        std::cout<<"END WRITE received.dat"<<std::endl;
+        std::cout<<"END WRITE received."<<requested_file_extension<<std::endl;
         if (ec != boost::asio::error::eof)
         {
             ReadData();

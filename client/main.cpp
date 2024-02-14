@@ -55,15 +55,17 @@ int main(int argc, char* argv[])
     std::thread th([&io_context](){
         io_context.run();
     });
-    std::this_thread::sleep_for(100ms);
-    while(std::cin >> cmd)
+    //this delay is necessary for io_context.run(); in the above lines being called before io_context.post(...) in the while loop:
+    std::this_thread::sleep_for(5ms);
+    while(std::getline( std::cin , cmd ) )
     {
         std::string copy_cmd=cmd;
         boost::to_upper(copy_cmd);
-        if(copy_cmd=="EXIT" || copy_cmd=="QUIT" || copy_cmd=="X" || copy_cmd=="Q") break;
+        if(copy_cmd=="EXIT" || copy_cmd=="QUIT" ||
+           copy_cmd=="X" || copy_cmd=="Q") break;
         std::cout<<"cmd="<<cmd<<std::endl;
-        //io_context.post([&]()
-        //    {
+        io_context.post([&io_context,cmd]()
+            {
                 HTTPGetRequest req(
                     io_context,
                     "127.0.0.1",
@@ -71,10 +73,17 @@ int main(int argc, char* argv[])
                     OnDataReceived,
                     OnRequestCompleted);
                 req.sendRequest();
-                std::this_thread::sleep_for(10ms);
-        //    });
+            });
         g_data.clear();
+        //*
+        if(copy_cmd == "SERVER SHUTDOWN"  ||
+           copy_cmd == "SERVER EXIT"      ||
+           copy_cmd == "SERVER STOP"      ||
+           copy_cmd == "SERVER FINISH") break;
+        //*/
     }
+    //this delay is necessary for io_context to fulfill the stop operation in case of lines 89-81:
+    std::this_thread::sleep_for(5ms);
     std::cout<<"END OF WHILE LOOP"<<std::endl;
     work.reset();// destroy work object: signals end of work
     std::cout<<"AFTER work.reset();"<<std::endl;

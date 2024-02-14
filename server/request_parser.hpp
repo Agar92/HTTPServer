@@ -1,7 +1,11 @@
 #ifndef HTTP_REQUEST_PARSER_HPP
 #define HTTP_REQUEST_PARSER_HPP
 
+#include <iostream>
 #include <tuple>
+#include <boost/algorithm/string.hpp>
+
+#include "request.hpp"
 
 namespace http {
 namespace server {
@@ -19,7 +23,7 @@ public:
   void reset();
 
   /// Result of parse.
-  enum result_type { good, bad, indeterminate };
+  enum result_type { good, bad, indeterminate, shutdown };
 
   /// Parse some data. The enum return value is good when a complete request has
   /// been parsed, bad if the data is invalid, indeterminate when more data is
@@ -29,10 +33,19 @@ public:
   std::tuple<result_type, InputIterator> parse(request& req,
       InputIterator begin, InputIterator end)
   {
+    std::cout<<"request_parser::parse"<<std::endl;
     while (begin != end)
     {
       result_type result = consume(req, *begin++);
-      if (result == good || result == bad)
+      std::string URI=req.uri;
+      boost::to_upper(URI);
+      std::cout<<"URI="<<URI<<std::endl;
+      if(URI == "SERVER SHUTDOWN" ||
+         URI == "SERVER EXIT"     ||
+         URI == "SERVER STOP"     ||
+         URI == "SERVER FINISH")
+        result=shutdown;
+      if (result == good || result == bad || result == shutdown)
         return std::make_tuple(result, begin);
     }
     return std::make_tuple(indeterminate, begin);

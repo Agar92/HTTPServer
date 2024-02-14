@@ -45,7 +45,7 @@ request_parser::result_type request_parser::consume(request& req, char input)
       return indeterminate;
     }
   case uri:
-    if (input == ' ')
+    if (input == ' ' && req.temp != "SERVER")
     {
       state_ = http_version_h;
       return indeterminate;
@@ -57,6 +57,8 @@ request_parser::result_type request_parser::consume(request& req, char input)
     else
     {
       req.uri.push_back(input);
+      req.temp=req.uri;
+      boost::to_upper(req.temp);
       return indeterminate;
     }
   case http_version_h:

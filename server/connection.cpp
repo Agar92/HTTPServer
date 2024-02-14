@@ -16,6 +16,8 @@ connection::connection(boost::asio::ip::tcp::socket socket,
 {
 }
 
+connection::~connection(){std::cout<<"connection::~connection"<<std::endl;}
+
 void connection::start()
 {
   std::cout<<"connection::start()"<<std::endl;
@@ -58,6 +60,13 @@ void connection::do_read()
             std::cout<<"result == request_parser::bad"<<std::endl;
             reply_ = reply::stock_reply(reply::bad_request);
             do_write();
+          }
+          else if (result == request_parser::shutdown)
+          {
+            std::cout<<"result == request_parser::shutdown"<<std::endl;
+            // Initiate graceful connection closure.
+            // server::do_await_stop() is waiting for it:
+            std::raise(SIGINT);//or std::raise(SIGINT);
           }
           else
           {

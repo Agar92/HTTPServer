@@ -7,6 +7,12 @@ namespace server {
 
 connection_manager::connection_manager()
 {
+  std::cout<<"connection_manager()"<<std::endl;
+}
+
+connection_manager::~connection_manager()
+{
+  std::cout<<"~connection_manager()"<<std::endl;
 }
 
 void connection_manager::start(connection_ptr c)

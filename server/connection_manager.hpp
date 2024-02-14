@@ -18,6 +18,8 @@ public:
   /// Construct a connection manager.
   connection_manager();
 
+  ~connection_manager();
+
   /// Add the specified connection to the manager and start it.
   void start(connection_ptr c);
 
@@ -26,6 +28,8 @@ public:
 
   /// Stop all connections.
   void stop_all();
+
+  bool stopped=false;
 
 private:
   /// The managed connections.

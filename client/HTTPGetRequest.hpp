@@ -42,4 +42,6 @@ private:
  size_t file_size=0;
 
  void ReadData();
+ //extension of the file requested in m_relativeURL:
+ std::string requested_file_extension="";
 };

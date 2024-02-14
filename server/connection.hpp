@@ -26,6 +26,8 @@ public:
   explicit connection(boost::asio::ip::tcp::socket socket,
       connection_manager& manager, request_handler& handler);
 
+  ~connection();
+
   /// Start the first asynchronous operation for the connection.
   void start();
 
