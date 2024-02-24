@@ -1,0 +1,26 @@
+name: 'C++ CI'
+
+on:
+  push:
+    branches:
+      - main
+#  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions: write-all
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - run: sudo apt-get update && sudo apt-get install cmake libboost-all-dev clang-format -y
+      - run: cmake -S server/ -B server/build/ -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake --build server/build/
+      - run: cmake --build server/build/ --target clangformat
+      - run: cmake -S client/ -B client/build/ -DPATCH_VERSION=${{ github.run_number }}
+      - run: cmake --build client/build/
+      - run: cmake --build client/build/ --target clangformat
