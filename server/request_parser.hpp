@@ -1,3 +1,7 @@
+/*!
+  \file  request_parser.hpp
+  \brief helper class for parsing HTTP requests from a client
+*/
 #ifndef HTTP_REQUEST_PARSER_HPP
 #define HTTP_REQUEST_PARSER_HPP
 
@@ -14,34 +18,41 @@ namespace server
 
 struct request;
 
-/// Parser for incoming requests.
+//! Class for a parser for incoming requests.
 class request_parser
 {
   public:
-  /// Construct ready to parse the request method.
+  //! Constructor
   request_parser();
 
-  /// Reset to initial parser state.
+  //! Reset to initial parser state.
   void reset();
 
-  /// Result of parse.
+  //! Result of parse.
   enum result_type
   {
-    good,
-    bad,
-    indeterminate,
-    shutdown
+    good,         /*!< good (proper) parsing operation */
+    bad,          /*!< can not parse */
+    indeterminate,/*!< parsing operation in process (has not finished yet) */
+    shutdown      /*!< shutdown the server */
   };
 
-  /// Parse some data. The enum return value is good when a complete request has
-  /// been parsed, bad if the data is invalid, indeterminate when more data is
-  /// required or shutdown. The InputIterator return value indicates how much of the input
-  /// has been consumed.
+  //! function to parse the incoming HTTP request from a client
+  /*! 
+   * Parse some data. The enum return value is good when a complete request has
+   * been parsed, bad if the data is invalid, indeterminate when more data is
+   * required or shutdown. The InputIterator return value indicates how much of the input
+   * has been consumed.<BR>
+   * Parsing parameters:
+   * \param[in] req   request being parsed
+   * \param[in] begin pointer to the 1st byte of the string being parsed
+   * \param[in] end   pointer to the byte after the last byte of the string being parsed
+   * \return pair<parsing result type,iterator to the end of parsing>
+   */
   template <typename InputIterator>
   std::tuple<result_type, InputIterator>
   parse(request& req, InputIterator begin, InputIterator end)
   {
-    std::cout << "request_parser::parse" << std::endl;
     while (begin != end)
     {
       result_type result = consume(req, *begin++);
@@ -57,22 +68,22 @@ class request_parser
   }
 
   private:
-  /// Handle the next character of input.
+  //! Handle the next character of input.
   result_type consume(request& req, char input);
 
-  /// Check if a byte is an HTTP character.
+  //! Check if a byte is an HTTP character.
   static bool is_char(int c);
 
-  /// Check if a byte is an HTTP control character.
+  //! Check if a byte is an HTTP control character.
   static bool is_ctl(int c);
 
-  /// Check if a byte is defined as an HTTP tspecial character.
+  //! Check if a byte is defined as an HTTP tspecial character.
   static bool is_tspecial(int c);
 
-  /// Check if a byte is a digit.
+  //! Check if a byte is a digit.
   static bool is_digit(int c);
 
-  /// The current state of the parser.
+  //! The current state of the parser (what part of an HTTP request it is parsing at the moment)
   enum state
   {
     method_start,
