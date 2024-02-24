@@ -3,8 +3,10 @@
 
 #include <string>
 
-namespace http {
-namespace server {
+namespace http
+{
+namespace server
+{
 
 struct reply;
 struct request;
@@ -12,8 +14,8 @@ struct request;
 /// The common handler for all incoming requests.
 class request_handler
 {
-public:
-  request_handler(const request_handler&) = delete;
+  public:
+  request_handler(const request_handler&)            = delete;
   request_handler& operator=(const request_handler&) = delete;
 
   /// Construct with a directory containing files to be served.
@@ -22,12 +24,11 @@ public:
   /// Handle a request and produce a reply.
   void handle_request(const request& req, reply& rep);
 
-private:
+  private:
   /// The directory containing the files to be served.
   std::string doc_root_;
 
-  /// Perform URL-decoding on a string. Returns false if the encoding was
-  /// invalid.
+  /// Perform URL-decoding on a string. Returns false if the encoding was invalid.
   static bool url_decode(const std::string& in, std::string& out);
 };
 

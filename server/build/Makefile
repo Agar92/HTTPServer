@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServer/server
+CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServerClean/server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServer/server/build
+CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServerClean/server/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/server/build/CMakeFiles /home/andrey/Desktop/HTTPServer/server/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/server/build/CMakeFiles /home/andrey/Desktop/HTTPServerClean/server/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/server/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/server/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,19 @@ http-server: cmake_check_build_system
 http-server/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http-server.dir/build.make CMakeFiles/http-server.dir/build
 .PHONY : http-server/fast
+
+#=============================================================================
+# Target rules for targets named clangformat
+
+# Build rule for target.
+clangformat: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clangformat
+.PHONY : clangformat
+
+# fast build rule for target.
+clangformat/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clangformat.dir/build.make CMakeFiles/clangformat.dir/build
+.PHONY : clangformat/fast
 
 connection.o: connection.cpp.o
 .PHONY : connection.o
@@ -329,6 +342,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... clangformat"
 	@echo "... http-server"
 	@echo "... connection.o"
 	@echo "... connection.i"

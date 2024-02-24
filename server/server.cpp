@@ -2,17 +2,15 @@
 #include <signal.h>
 #include <utility>
 
-namespace http {
-namespace server {
+namespace http
+{
+namespace server
+{
 
 server::server(const std::string& address, const std::string& port,
-    const std::string& doc_root)
-  : io_service_(),
-    signals_(io_service_),
-    acceptor_(io_service_),
-    connection_manager_(),
-    socket_(io_service_),
-    request_handler_(doc_root)
+               const std::string& doc_root)
+    : io_service_(), signals_(io_service_), acceptor_(io_service_),
+      connection_manager_(), socket_(io_service_), request_handler_(doc_root)
 {
   // Register to handle the signals that indicate when the server should exit.
   // It is safe to register for the same signal multiple times in a program,
@@ -47,28 +45,21 @@ void server::run()
 
 void server::do_accept()
 {
-  std::cout<<"ENTER server::do_accept()"<<std::endl;
-
-  acceptor_.async_accept(socket_,
+  acceptor_.async_accept(
+      socket_,
       [this](boost::system::error_code ec)
       {
         // Check whether the server was stopped by a signal before this
         // completion handler had a chance to run.
-        if (!acceptor_.is_open())
-        {
-          return;
-        }
+        if (!acceptor_.is_open()) { return; }
 
         if (!ec)
         {
-          std::cout<<"======BEFORE connection_manager_.start(...)"<<std::endl;
           connection_manager_.start(std::make_shared<connection>(
               std::move(socket_), connection_manager_, request_handler_));
-          std::cout<<"======AFTER connection_manager_.start(...)"<<std::endl;
         }
         do_accept();
       });
-  std::cout<<"EXIT server::do_accept()"<<std::endl;
 }
 
 void server::do_await_stop()

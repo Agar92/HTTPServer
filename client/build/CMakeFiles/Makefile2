@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServer/client
+CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServerClean/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServer/client/build
+CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServerClean/client/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -72,6 +72,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/http-client.dir/clean
+clean: CMakeFiles/clangformat.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -81,14 +82,14 @@ clean: CMakeFiles/http-client.dir/clean
 CMakeFiles/http-client.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http-client.dir/build.make CMakeFiles/http-client.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http-client.dir/build.make CMakeFiles/http-client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles --progress-num=1,2,3 "Built target http-client"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles --progress-num=1,2,3 "Built target http-client"
 .PHONY : CMakeFiles/http-client.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/http-client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/client/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/http-client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/client/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles 0
 .PHONY : CMakeFiles/http-client.dir/rule
 
 # Convenience name for target.
@@ -99,6 +100,32 @@ http-client: CMakeFiles/http-client.dir/rule
 CMakeFiles/http-client.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http-client.dir/build.make CMakeFiles/http-client.dir/clean
 .PHONY : CMakeFiles/http-client.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/clangformat.dir
+
+# All Build rule for target.
+CMakeFiles/clangformat.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clangformat.dir/build.make CMakeFiles/clangformat.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clangformat.dir/build.make CMakeFiles/clangformat.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles --progress-num= "Built target clangformat"
+.PHONY : CMakeFiles/clangformat.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/clangformat.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/clangformat.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles 0
+.PHONY : CMakeFiles/clangformat.dir/rule
+
+# Convenience name for target.
+clangformat: CMakeFiles/clangformat.dir/rule
+.PHONY : clangformat
+
+# clean rule for target.
+CMakeFiles/clangformat.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clangformat.dir/build.make CMakeFiles/clangformat.dir/clean
+.PHONY : CMakeFiles/clangformat.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

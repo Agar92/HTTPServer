@@ -2,22 +2,17 @@
 
 #include <iostream>
 
-namespace http {
-namespace server {
-
-connection_manager::connection_manager()
+namespace http
 {
-  std::cout<<"connection_manager()"<<std::endl;
-}
-
-connection_manager::~connection_manager()
+namespace server
 {
-  std::cout<<"~connection_manager()"<<std::endl;
-}
+
+connection_manager::connection_manager() {}
+
+connection_manager::~connection_manager() {}
 
 void connection_manager::start(connection_ptr c)
 {
-  std::cout<<"connection_manager::start"<<std::endl;
   connections_.insert(c);
   c->start();
 }
@@ -30,8 +25,7 @@ void connection_manager::stop(connection_ptr c)
 
 void connection_manager::stop_all()
 {
-  for (auto c: connections_)
-    c->stop();
+  for (auto c : connections_) c->stop();
   connections_.clear();
 }
 

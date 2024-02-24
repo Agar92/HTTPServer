@@ -5,43 +5,39 @@
 #include <boost/asio.hpp>
 using boost::asio::ip::tcp;
 
-typedef void(*HTTPRequestDataReceived)(char*, size_t);
-typedef void(*HTTPRequestComplete)();
+typedef void (*HTTPRequestDataReceived)(char*, size_t);
+typedef void (*HTTPRequestComplete)();
 
 class HTTPGetRequest
 {
-public:
- HTTPGetRequest(
-  boost::asio::io_context& io_context,
-  std::string host, 
-  std::string relativeURL, 
-  HTTPRequestDataReceived receivedCB,
-  HTTPRequestComplete completeCB);
- 
- ~HTTPGetRequest();
+  public:
+  HTTPGetRequest(boost::asio::io_context& io_context, std::string host,
+                 std::string relativeURL, HTTPRequestDataReceived receivedCB,
+                 HTTPRequestComplete completeCB);
 
-public:
- void sendRequest();
+  ~HTTPGetRequest();
 
-private:
- boost::asio::io_context & m_io_service;
- HTTPRequestDataReceived m_receivedCB;
- HTTPRequestComplete m_completeCB;
+  public:
+  void sendRequest();
 
- std::string m_host;
- std::string m_relativeURL;
+  private:
+  boost::asio::io_context& m_io_service;
+  HTTPRequestDataReceived  m_receivedCB;
+  HTTPRequestComplete      m_completeCB;
 
- tcp::socket m_socket;
- tcp::resolver m_resolver;
+  std::string m_host;
+  std::string m_relativeURL;
 
- boost::asio::streambuf m_request;
- boost::asio::streambuf m_response;
+  tcp::socket   m_socket;
+  tcp::resolver m_resolver;
 
+  boost::asio::streambuf m_request;
+  boost::asio::streambuf m_response;
 
- std::string file_contents;
- size_t file_size=0;
+  std::string file_contents;
+  size_t      file_size = 0;
 
- void ReadData();
- //extension of the file requested in m_relativeURL:
- std::string requested_file_extension="";
+  void ReadData();
+  // extension of the file requested in m_relativeURL:
+  std::string requested_file_extension = "";
 };

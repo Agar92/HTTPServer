@@ -1,7 +1,7 @@
 CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o: \
- /home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.cpp \
+ /home/andrey/Desktop/HTTPServerClean/client/HTTPGetRequest.cpp \
  /usr/include/stdc-predef.h \
- /home/andrey/Desktop/HTTPServer/client/HTTPGetRequest.hpp \
+ /home/andrey/Desktop/HTTPServerClean/client/HTTPGetRequest.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -1114,8 +1114,8 @@ CMakeFiles/http-client.dir/HTTPGetRequest.cpp.o: \
  /usr/include/boost/asio/windows/random_access_handle.hpp \
  /usr/include/boost/asio/windows/stream_handle.hpp \
  /usr/include/boost/asio/write_at.hpp \
- /usr/include/boost/asio/impl/write_at.hpp /usr/include/c++/11/iostream \
- /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/boost/asio/impl/write_at.hpp /usr/include/c++/11/fstream \
+ /usr/include/c++/11/bits/codecvt.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc
+ /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/iostream

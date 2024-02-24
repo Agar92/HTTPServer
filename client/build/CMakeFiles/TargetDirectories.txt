@@ -1,3 +1,4 @@
-/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles/http-client.dir
-/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles/edit_cache.dir
-/home/andrey/Desktop/HTTPServer/client/build/CMakeFiles/rebuild_cache.dir
+/home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles/http-client.dir
+/home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles/clangformat.dir
+/home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles/edit_cache.dir
+/home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles/rebuild_cache.dir

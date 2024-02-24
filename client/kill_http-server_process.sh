@@ -1,1 +1,0 @@
-$kill -9 $( ps -u | grep "./build/http-server" | grep "0.00 ./" | sed -n 's/^andrey     \([0-9]\{5\}\) .*/ \1 /p' )

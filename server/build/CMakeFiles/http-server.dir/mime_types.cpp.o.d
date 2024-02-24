@@ -1,7 +1,7 @@
 CMakeFiles/http-server.dir/mime_types.cpp.o: \
- /home/andrey/Desktop/HTTPServer/server/mime_types.cpp \
+ /home/andrey/Desktop/HTTPServerClean/server/mime_types.cpp \
  /usr/include/stdc-predef.h \
- /home/andrey/Desktop/HTTPServer/server/mime_types.hpp \
+ /home/andrey/Desktop/HTTPServerClean/server/mime_types.hpp \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

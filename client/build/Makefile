@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServer/client
+CMAKE_SOURCE_DIR = /home/andrey/Desktop/HTTPServerClean/client
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServer/client/build
+CMAKE_BINARY_DIR = /home/andrey/Desktop/HTTPServerClean/client/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/client/build/CMakeFiles /home/andrey/Desktop/HTTPServer/client/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles /home/andrey/Desktop/HTTPServerClean/client/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServer/client/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/andrey/Desktop/HTTPServerClean/client/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -128,6 +128,19 @@ http-client: cmake_check_build_system
 http-client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/http-client.dir/build.make CMakeFiles/http-client.dir/build
 .PHONY : http-client/fast
+
+#=============================================================================
+# Target rules for targets named clangformat
+
+# Build rule for target.
+clangformat: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clangformat
+.PHONY : clangformat
+
+# fast build rule for target.
+clangformat/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clangformat.dir/build.make CMakeFiles/clangformat.dir/build
+.PHONY : clangformat/fast
 
 HTTPGetRequest.o: HTTPGetRequest.cpp.o
 .PHONY : HTTPGetRequest.o
@@ -185,6 +198,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... clangformat"
 	@echo "... http-client"
 	@echo "... HTTPGetRequest.o"
 	@echo "... HTTPGetRequest.i"
